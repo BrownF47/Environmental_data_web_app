@@ -26,7 +26,7 @@ def insert_temperature_data(temperature_data):
     
     # delete current data from table 
 
-    cursor.execute("DELETE FROM temperature")
+    #cursor.execute("DELETE FROM temperature")
 
     for row in data_to_add.T:
 

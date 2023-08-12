@@ -1,8 +1,16 @@
 import requests
 import json
 
+
+# Load API keys #
+
+config = open('.config.json')
+config_data = json.load(config)
+
 # API to access met office server #
-API_KEY = 'key'
+
+API_KEY = config_data['MET_OFFICE_API_KEY']
+
 
 def get_temperature_data(api_key):
     base_url = 'http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/'

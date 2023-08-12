@@ -20,15 +20,18 @@ def extract_timestamps_and_temperatures(data):
         the_day = day['value']
 
         for observation in day['Rep']:
-            #timestamp = datetime.datetime.strptime(observation['$'], '%H%M')
-            #print(datetime.datetime.strptime(the_day + observation['$'], '%Y-%M-%dZ %H%M'))
-            hours = round(float(observation['$'])/60)
+            try:
+                #timestamp = datetime.datetime.strptime(observation['$'], '%H%M')
+                #print(datetime.datetime.strptime(the_day + observation['$'], '%Y-%M-%dZ %H%M'))
+                hours = round(float(observation['$'])/60)
 
-            timestamp = (datetime.datetime.strptime(the_day+str(hours), '%Y-%m-%dZ%H'))
-            temperature = float(observation['T'])
-            
-            timestamps.append(timestamp)
-            temperatures.append(temperature)
+                timestamp = (datetime.datetime.strptime(the_day+str(hours), '%Y-%m-%dZ%H'))
+                temperature = float(observation['T'])
+                
+                timestamps.append(timestamp)
+                temperatures.append(temperature)
+            except:
+                print(f'missing temperatre data at {timestamp}' )
 
     return timestamps, temperatures
 
