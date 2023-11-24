@@ -48,6 +48,7 @@ def plot_temperature_data(timestamps, temperatures):
     plt.xticks(rotation=45)
     plt.grid(True)
     plt.tight_layout()
+    plt.savefig('Environmental_data_website/assets/img/portfolio/Temp_graph.png')
     plt.show()
 
 if __name__ == "__main__":
@@ -55,6 +56,10 @@ if __name__ == "__main__":
     data = load_data_from_json(json_data)
     timestamps, temperatures = extract_timestamps_and_temperatures(data)
     plot_temperature_data(timestamps, temperatures)
+
+
+
+
 
 
 #f = open('temperature_data_uk.json')
